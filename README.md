@@ -5,7 +5,7 @@ Provides Python Http and Https agents that establish TCP and TLS connections via
 Discord Channel: [TCP TLS Tunnel](https://discord.gg/4HRVxNP)
 
 # Usage examples
-Import [http.client](https://docs.python.org/3/library/http.client.html), [urllib3](https://urllib3.readthedocs.io/en/latest/), [sys](https://docs.python.org/3/library/sys.html) and [urllib](https://docs.python.org/3/library/sys.html)
+Import [http.client](https://docs.python.org/3/library/http.client.html) [urllib3](https://urllib3.readthedocs.io/en/latest/) [sys](https://docs.python.org/3/library/sys.html) [urllib](https://docs.python.org/3/library/sys.html)
 
 ```
 from http.client import HTTPConnection
