@@ -24,13 +24,13 @@ def ja3er():
     parsed_url = urlparse(url)
     host = parsed_url.netloc
     tunnelHttpAgent = TunnelHttpAgent(
-        host='104.248.43.30',
-        port=1337,
+        host='IP',
+        port=443,
         server_name=host,
         server_port=port,
         auth={
-            'login': 'test1',
-            'password': '467jw2d53x82FAGHSw'
+            'login': 'test-login',
+            'password': 'test-password'
         },
         timeout=timeout,
         proxy=None,
