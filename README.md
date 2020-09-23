@@ -8,8 +8,7 @@ Discord Channel: [TCP TLS Tunnel](https://discord.gg/4HRVxNP)
 
 Install python-socks from [Here](https://github.com/Sweety1337/python-socks-upgraded) 
 ```
-And put in site-packages like 
-\Python\Python38-32\Lib\site-packages\python_socks
+python setup.py install
 ```
 
 
