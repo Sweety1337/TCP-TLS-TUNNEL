@@ -5,9 +5,13 @@ Provides Python Http and Https agents that establish TCP and TLS connections via
 Discord Channel: [TCP TLS Tunnel](https://discord.gg/4HRVxNP)
 
 # Requirements
+
+Install python-socks from [Here](https://github.com/Sweety1337/python-socks-upgraded) 
 ```
-Install from [python-socks](https://github.com/Sweety1337/python-socks-upgraded) and put in site-packages like \Python\Python38-32\Lib\site-packages\python_socks
+And put in site-packages like 
+\Python\Python38-32\Lib\site-packages\python_socks
 ```
+
 
 # Usage examples
 Import [http.client](https://docs.python.org/3/library/http.client.html) [urllib3](https://urllib3.readthedocs.io/en/latest/) [sys](https://docs.python.org/3/library/sys.html) [urllib](https://docs.python.org/3/library/sys.html) [agent](https://github.com/Sweety1337/py-http-tunnel/src/agent.py)
