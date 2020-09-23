@@ -4,7 +4,7 @@ from urllib.parse import urlparse
 import urllib3
 
 
-sys.path.append('../')
+sys.path.append('../src')
 
 from agent import TunnelHttpAgent
 
