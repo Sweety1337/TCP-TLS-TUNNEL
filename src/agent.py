@@ -1,6 +1,5 @@
-﻿from python_socks.sync import Proxy
+from python_socks.sync import Proxy
 import clients
-import socket
 
 
 class TunnelHttpAgent:
@@ -64,9 +63,6 @@ class TunnelHttpAgent:
             dest_port=self.server_port,
             timeout=self.timeout,
         )
-
-    def close(self):
-        self.sock.close()
 
 
 """
