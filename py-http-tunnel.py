@@ -21,10 +21,11 @@ headers = urllib3.make_headers(
 )
 
 
-def request(url: str, method: str = 'GET', timeout: int = 5, proxy: str = '', client: str = 'Chrome'):
+def request(url=None, method=None, timeout=None, proxy=None, client=None):
     parsed_url = urlparse(url)
     scheme = parsed_url.scheme
     host = parsed_url.netloc
+
     if scheme == 'http':
         port = 80
     else:
@@ -46,7 +47,7 @@ def request(url: str, method: str = 'GET', timeout: int = 5, proxy: str = '', cl
         port=port,
         timeout=timeout
     )
-    connection.sock = tunnelHttpAgent
+    connection.sock = tunnelHttpAgent.sock
     connection.request(
         method=method,
         url=parsed_url.path,
@@ -57,12 +58,14 @@ def request(url: str, method: str = 'GET', timeout: int = 5, proxy: str = '', cl
 
 
 if __name__ == '__main__':
-    url = 'https://www.howsmyssl.com/a/check'
+    url = 'https://ja3er.com/json'
     method = 'GET'
     r = request(
         url=url,
         method=method,
-        timeout=5
+        timeout=5,
+        proxy=None,
+        client=None
     )
     data = r.getresponse().read().decode('utf-8')
     print(data)
