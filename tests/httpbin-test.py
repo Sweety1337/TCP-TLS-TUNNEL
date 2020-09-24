@@ -1,17 +1,18 @@
 from http.client import HTTPConnection
-import sys
 from urllib.parse import urlparse
 import urllib3
+import sys
 
-
-sys.path.append('../src')
+sys.path.append('src')
 
 from agent import TunnelHttpAgent
 
 
-url = 'https://www.httpbin.org/get'
-timeout = 5
-port = 443
+auth = {
+    'login': 'test1',
+    'password': '467jw2d53x82FAGHSw'
+}
+
 headers = urllib3.make_headers(
     keep_alive=True,
     disable_cache=True,
@@ -20,31 +21,51 @@ headers = urllib3.make_headers(
 )
 
 
-def httpbin():
+def request(url=None, method=None, timeout=None, proxy=None, client=None):
     parsed_url = urlparse(url)
+    scheme = parsed_url.scheme
     host = parsed_url.netloc
+
+    if scheme == 'http':
+        port = 80
+    else:
+        port = 443
+
     tunnelHttpAgent = TunnelHttpAgent(
-        host='IP',
-        port=443,
+        host='104.248.43.30',
+        port=1337,
         server_name=host,
         server_port=port,
-        auth={
-            'login': 'test-login',
-            'password': 'test-password'
-        },
+        auth=auth,
         timeout=timeout,
-        proxy=None,
-        client=None,
+        proxy=proxy,
+        client=client,
     )
-    connection = HTTPConnection(host=host, port=port, timeout=timeout)
-    connection.sock = tunnelHttpAgent.sock
-    connection.request(method='GET', url=parsed_url.path, body=parsed_url.query, headers=headers)
-    response = connection.getresponse().read().decode('utf-8')
-    connection.close()
-    tunnelHttpAgent.close()
 
-    print(response)
+    connection = HTTPConnection(
+        host=host,
+        port=port,
+        timeout=timeout
+    )
+    connection.sock = tunnelHttpAgent.sock
+    connection.request(
+        method=method,
+        url=parsed_url.path,
+        body=parsed_url.query,
+        headers=headers
+    )
+    return connection
 
 
 if __name__ == '__main__':
-    httpbin()
+    url = 'https://www.httpbin.org/get'
+    method = 'GET'
+    r = request(
+        url=url,
+        method=method,
+        timeout=5,
+        proxy=None,
+        client=None
+    )
+    data = r.getresponse().read().decode('utf-8')
+    print(data)
