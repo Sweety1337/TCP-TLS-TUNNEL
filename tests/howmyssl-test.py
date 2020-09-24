@@ -9,8 +9,8 @@ from agent import TunnelHttpAgent
 
 
 auth = {
-    'login': 'test1',
-    'password': '467jw2d53x82FAGHSw'
+    'login': 'TEST-LOGIN',
+    'password': 'TEST-PASSWORD'
 }
 
 headers = urllib3.make_headers(
@@ -32,8 +32,8 @@ def request(url=None, method=None, timeout=None, proxy=None, client=None):
         port = 443
 
     tunnelHttpAgent = TunnelHttpAgent(
-        host='104.248.43.30',
-        port=1337,
+        host='127.0.0.1',
+        port=8080,
         server_name=host,
         server_port=port,
         auth=auth,
